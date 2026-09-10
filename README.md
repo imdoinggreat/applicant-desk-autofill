@@ -68,6 +68,8 @@ python3 scripts/check-extension-policy.py
 
 本项目的公开页面地址是 <https://imdoinggreat.github.io/applicant-desk-autofill/>；隐私政策地址是 <https://imdoinggreat.github.io/applicant-desk-autofill/privacy.html>。
 
+扩展 ZIP 下载：<https://imdoinggreat.github.io/applicant-desk-autofill/downloads/applicant-desk-autofill-0.1.0.zip>。下载后在 `chrome://extensions` 打开 Developer mode，选择 **Load unpacked** 并解压后选择其中的 `extension/` 文件夹。
+
 通用识别的边界见 [LIMITATIONS.md](LIMITATIONS.md)：它会优先保持保守，识别不确定时留空，让用户自己审核和提交。
 
 仓库内的 GitHub Actions 会在 `main` 推送时部署静态资料台，也会检查代码并生成扩展 ZIP。第一次发布后，在仓库 Settings → Pages 选择 GitHub Actions；之后用户可以直接访问 Pages、下载 Release 中的 ZIP，或在 Chrome 中选择 `extension/` 加载。

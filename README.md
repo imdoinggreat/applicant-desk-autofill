@@ -40,10 +40,9 @@ python3 -m http.server 18765
 
 第一次使用时：
 
-1. 在 Applicant Desk 点击 **Export backup**，导出 JSON。
-2. 点击 Chrome 工具栏里的 Applicant Desk Autofill。
-3. 选择 **Import Applicant Desk backup**，导入刚才的 JSON。
-4. 打开学校网申页面，点击扩展里的 **Fill this page**。
+1. 点击 Chrome 工具栏里的 Applicant Desk Autofill。
+2. 点击 **Open full profile** 填写扩展自己的通用资料，或者在 Applicant Desk 点击 **Export backup** 后选择 **Import Applicant Desk backup**。
+3. 打开学校网申或其他可信表单页面，点击扩展里的 **Fill this page**。
 
 扩展会根据字段名、标签、placeholder 和 autocomplete 识别常见的姓名、邮箱、电话、地址、国籍、教育、成绩和推荐人字段。其他场景可以在 **Custom field values (JSON)** 中添加自己的字段别名和值。已有内容默认跳过，避免覆盖你手动填写的答案。
 

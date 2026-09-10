@@ -16,6 +16,8 @@ Applicant Desk Autofill lets users reuse profile information in compatible web f
 
 Keep one profile and reuse it across application, education, recruiting, housing, and other trusted forms. The extension recognizes common labels, autocomplete values, field names, and placeholders for names, contact information, addresses, nationality, education, scores, and recommendation contacts. Users can also add custom field aliases and values as JSON.
 
+The full profile is available from the extension's options page, so the extension can be used without the separate Applicant Desk dashboard.
+
 The extension fills only after the user clicks **Fill this page**, skips fields that already contain a value, never fills passwords or CAPTCHA fields, and does not submit forms. No backend, analytics, advertising, or remote code is used.
 
 ## Permission justifications

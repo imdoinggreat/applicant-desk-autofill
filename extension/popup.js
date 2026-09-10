@@ -71,6 +71,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     await enableTool();
   });
   $('save').addEventListener('click', saveProfile);
+  $('options').addEventListener('click', () => chrome.runtime.openOptionsPage());
   $('fill').addEventListener('click', fillPage);
   $('backup').addEventListener('change', (event) => {
     const [file] = event.target.files;

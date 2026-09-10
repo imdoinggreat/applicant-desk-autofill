@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Applicant Desk — Full profile</title>
+  <style>
+    :root { --ink:#17233a; --muted:#65728a; --line:#d9dee8; --paper:#f7f8fb; --white:#fff; --coral:#e76f51; --blue:#3478c6; }
+    * { box-sizing:border-box; }
+    body { margin:0; color:var(--ink); background:var(--paper); font:15px/1.45 Arial,sans-serif; }
+    main { max-width:980px; margin:0 auto; padding:42px 24px 72px; }
+    h1 { margin:0; font-size:32px; letter-spacing:-.03em; }
+    h2 { margin:0 0 4px; font-size:19px; }
+    p { color:var(--muted); }
+    .eyebrow { margin-bottom:8px; color:var(--coral); font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; }
+    .notice { margin:20px 0; padding:14px; border:1px solid #f0c7bb; border-radius:10px; background:#fff7f4; }
+    .notice p { color:var(--ink); font-size:13px; }
+    .notice a { color:#a84b36; }
+    .consent { display:flex; gap:8px; align-items:flex-start; color:var(--ink); font-size:13px; }
+    .consent input { width:auto; margin-top:3px; }
+    section { margin-top:22px; padding:22px; border:1px solid var(--line); border-radius:12px; background:var(--white); }
+    .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .span-2 { grid-column:span 2; }
+    label { display:block; margin:0 0 6px; color:var(--muted); font-size:12px; font-weight:700; }
+    input, textarea, select { width:100%; min-height:40px; padding:9px 10px; border:1px solid var(--line); border-radius:7px; color:var(--ink); background:#fff; font:inherit; }
+    textarea { min-height:88px; resize:vertical; }
+    input:focus, textarea:focus, select:focus { outline:2px solid rgba(52,120,198,.18); border-color:var(--blue); }
+    .actions { display:flex; gap:10px; flex-wrap:wrap; margin-top:22px; }
+    button { padding:10px 15px; border:0; border-radius:8px; color:#fff; background:var(--ink); font-weight:700; cursor:pointer; }
+    button.secondary { color:var(--ink); background:#e9edf4; }
+    #status { min-height:22px; margin-top:12px; color:#2f6f57; }
+    [hidden] { display:none !important; }
+    @media (max-width:700px) { .grid { grid-template-columns:1fr; } .span-2 { grid-column:auto; } }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="eyebrow">Applicant Desk Autofill</div>
+    <h1>One profile for many forms</h1>
+    <p>Keep reusable facts here. The extension only uses them when you explicitly ask it to fill the active page.</p>
+
+    <div id="consentGate" class="notice">
+      <p>This extension processes the profile you choose to save and form fields on pages you ask it to fill. It stores profile data locally in Chrome and does not upload or sell it.</p>
+      <label class="consent"><input id="consent" type="checkbox"> I understand and agree to this local-only use.</label>
+      <p><a href="privacy.html" target="_blank" rel="noopener">Read the privacy policy</a></p>
+    </div>
+
+    <form id="profileForm" hidden>
+      <section>
+        <h2>Identity and contact</h2>
+        <p>Use the spelling you want to reuse in forms.</p>
+        <div class="grid">
+          <div><label for="firstName">First / given name</label><input id="firstName" autocomplete="given-name"></div>
+          <div><label for="lastName">Last / family name</label><input id="lastName" autocomplete="family-name"></div>
+          <div><label for="preferredName">Preferred name</label><input id="preferredName"></div>
+          <div><label for="birthDate">Date of birth</label><input id="birthDate" type="date"></div>
+          <div><label for="birthCountry">Country of birth</label><input id="birthCountry"></div>
+          <div><label for="nationality">Citizenship / nationality</label><input id="nationality" autocomplete="country-name"></div>
+          <div class="span-2"><label for="email">Primary email</label><input id="email" type="email" autocomplete="email"></div>
+          <div><label for="phoneCode">Phone country code</label><input id="phoneCode" autocomplete="tel-country-code"></div>
+          <div><label for="phone">Phone number</label><input id="phone" autocomplete="tel"></div>
+          <div><label for="currentLocation">Current location</label><input id="currentLocation"></div>
+          <div><label for="visaStatus">Visa / immigration status</label><input id="visaStatus"></div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Addresses</h2>
+        <p>Structured pieces help the extension fill both one-line and multi-part address forms.</p>
+        <div class="grid">
+          <div class="span-2"><label for="currentAddress">Current street address</label><textarea id="currentAddress" autocomplete="street-address"></textarea></div>
+          <div><label for="currentCity">Current city</label><input id="currentCity" autocomplete="address-level2"></div>
+          <div><label for="currentRegion">Current state / region</label><input id="currentRegion" autocomplete="address-level1"></div>
+          <div><label for="currentPostalCode">Current postal code</label><input id="currentPostalCode" autocomplete="postal-code"></div>
+          <div><label for="currentCountry">Current country</label><input id="currentCountry"></div>
+          <div class="span-2"><label for="mailingAddress">Mailing / correspondence address</label><textarea id="mailingAddress"></textarea></div>
+          <div class="span-2"><label for="permanentAddress">Permanent / home address</label><textarea id="permanentAddress"></textarea></div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Education and work</h2>
+        <div class="grid">
+          <div class="span-2"><label for="ugSchool">School / institution</label><input id="ugSchool"></div>
+          <div><label for="ugCity">School city</label><input id="ugCity"></div>
+          <div><label for="ugCountry">School country</label><input id="ugCountry"></div>
+          <div><label for="ugDegree">Degree</label><input id="ugDegree"></div>
+          <div><label for="ugMajor">Major / field</label><input id="ugMajor"></div>
+          <div><label for="ugGpa">GPA</label><input id="ugGpa"></div>
+          <div><label for="employer">Employer / organization</label><input id="employer"></div>
+          <div><label for="jobTitle">Job title / role</label><input id="jobTitle"></div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Tests and references</h2>
+        <div class="grid">
+          <div><label for="gradTest">Graduate test</label><input id="gradTest"></div>
+          <div><label for="gradScore">Graduate test score</label><input id="gradScore"></div>
+          <div><label for="englishTest">English test</label><input id="englishTest"></div>
+          <div><label for="englishScore">English test score</label><input id="englishScore"></div>
+          <div><label for="ref1Name">Reference name</label><input id="ref1Name"></div>
+          <div><label for="ref1Email">Reference email</label><input id="ref1Email" type="email"></div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Custom field values</h2>
+        <p>Use JSON when another form asks for a field outside the common profile. Keys are matched against labels and placeholders.</p>
+        <textarea id="customFields" placeholder='{"portfolio url":"https://example.com","wechat id":"..."}'></textarea>
+      </section>
+
+      <div class="actions">
+        <button type="submit">Save profile</button>
+        <button id="export" type="button" class="secondary">Export JSON</button>
+        <label class="secondary" style="padding:10px 15px;border-radius:8px;cursor:pointer">Import JSON<input id="backup" type="file" accept=".json,application/json" hidden></label>
+      </div>
+      <div id="status" role="status"></div>
+    </form>
+  </main>
+  <script src="options.js"></script>
+</body>
+</html>

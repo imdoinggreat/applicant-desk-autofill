@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Applicant Desk Autofill</title>
+  <style>
+    :root { color-scheme: light; --ink:#17233a; --muted:#6b7280; --line:#d9dee8; --coral:#e76f51; --paper:#f7f8fb; }
+    * { box-sizing:border-box; }
+    body { width:360px; margin:0; padding:20px; color:var(--ink); background:var(--paper); font:14px/1.45 Arial,sans-serif; }
+    h1 { margin:0 0 4px; font-size:20px; letter-spacing:-.02em; }
+    p { margin:0; color:var(--muted); }
+    .eyebrow { margin-bottom:8px; color:var(--coral); font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
+    .card { margin-top:16px; padding:14px; border:1px solid var(--line); border-radius:12px; background:#fff; }
+    label { display:block; margin:10px 0 4px; color:var(--muted); font-size:12px; font-weight:600; }
+    input { width:100%; padding:9px 10px; border:1px solid var(--line); border-radius:7px; color:var(--ink); background:#fff; }
+    input:focus { outline:2px solid rgba(231,111,81,.25); border-color:var(--coral); }
+    .actions { display:grid; gap:8px; margin-top:14px; }
+    button { width:100%; padding:10px 12px; border:0; border-radius:8px; color:#fff; background:var(--ink); font-weight:700; cursor:pointer; }
+    button.secondary { color:var(--ink); background:#e9edf4; }
+    button:hover { filter:brightness(1.08); }
+    .file { display:block; margin-top:10px; color:var(--muted); font-size:12px; }
+    .file input { margin-top:5px; padding:7px; font-size:12px; }
+    #status { min-height:20px; margin-top:12px; color:#2f6f57; font-size:12px; }
+    .privacy { margin-top:14px; font-size:11px; }
+    .notice { margin-top:16px; padding:12px; border:1px solid #f0c7bb; border-radius:10px; background:#fff7f4; }
+    .notice p { color:var(--ink); font-size:12px; }
+    .consent { display:flex; gap:8px; align-items:flex-start; margin:10px 0 0; color:var(--ink); font-size:12px; font-weight:400; }
+    .consent input { width:auto; margin-top:3px; }
+    .notice a { display:inline-block; margin-top:8px; color:#a84b36; font-size:12px; }
+    [hidden] { display:none !important; }
+  </style>
+</head>
+<body>
+  <div class="eyebrow">Applicant Desk</div>
+  <h1>Fill the application page</h1>
+  <p>Keep one profile, reuse it across school portals.</p>
+
+  <div id="consentGate" class="notice">
+    <p>This extension processes the profile you choose to save and the form fields on the page you ask it to fill. It stores profile data locally in Chrome and does not upload or sell it.</p>
+    <label class="consent"><input id="consent" type="checkbox"> I understand and agree to this local-only use.</label>
+    <a href="privacy.html" target="_blank" rel="noopener">Read the privacy policy</a>
+  </div>
+
+  <div id="tool" class="card" hidden>
+    <label for="firstName">First / given name</label>
+    <input id="firstName" autocomplete="given-name">
+    <label for="lastName">Last / family name</label>
+    <input id="lastName" autocomplete="family-name">
+    <label for="email">Primary email</label>
+    <input id="email" type="email" autocomplete="email">
+    <label for="phone">Phone number</label>
+    <input id="phone" autocomplete="tel">
+    <label for="nationality">Citizenship / nationality</label>
+    <input id="nationality">
+    <label for="currentLocation">Current location</label>
+    <input id="currentLocation">
+    <label for="customFields">Custom field values (JSON, optional)</label>
+    <textarea id="customFields" rows="4" placeholder='{"portfolio url":"https://...","wechat id":"..."}'></textarea>
+
+    <div class="actions">
+      <button id="fill">Fill this page</button>
+      <button id="save" class="secondary">Save profile</button>
+    </div>
+
+    <label class="file" for="backup">Import Applicant Desk backup (JSON)
+      <input id="backup" type="file" accept=".json,application/json">
+    </label>
+    <div id="status" role="status"></div>
+  </div>
+
+  <p class="privacy">The extension stores data in Chrome's local storage. It does not upload your profile.</p>
+  <script src="popup.js"></script>
+</body>
+</html>

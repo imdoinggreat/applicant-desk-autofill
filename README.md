@@ -1,6 +1,6 @@
 # Applicant Desk — U.S. Graduate Applications
 
-一个面向美国硕士申请的个人资料台：把不同网申系统反复询问的个人、教育、考试、推荐人和项目进度集中在一个本地页面里。
+一个面向美国硕士申请的个人资料台，以及一个可复用到其他网页表单的本地 Chrome 自动填表扩展。
 
 ## 适合当前申请组合的内容
 
@@ -45,7 +45,7 @@ python3 -m http.server 18765
 3. 选择 **Import Applicant Desk backup**，导入刚才的 JSON。
 4. 打开学校网申页面，点击扩展里的 **Fill this page**。
 
-扩展会根据字段名、标签、placeholder 和 autocomplete 识别常见的姓名、邮箱、电话、地址、国籍、签证、教育、成绩和推荐人字段。已有内容默认跳过，避免覆盖你手动填写的答案。
+扩展会根据字段名、标签、placeholder 和 autocomplete 识别常见的姓名、邮箱、电话、地址、国籍、教育、成绩和推荐人字段。其他场景可以在 **Custom field values (JSON)** 中添加自己的字段别名和值。已有内容默认跳过，避免覆盖你手动填写的答案。
 
 扩展只在你点击 **Fill this page** 后访问当前页面，使用 `activeTab` 临时权限；它没有 `<all_urls>`、远程代码、后台服务器或分析脚本。
 

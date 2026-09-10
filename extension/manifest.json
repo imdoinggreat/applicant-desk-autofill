@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Applicant Desk Autofill",
   "version": "0.1.0",
-  "description": "Fill common U.S. graduate application fields from a private local profile.",
+  "description": "Fill common web-form fields from a private local profile.",
   "permissions": ["storage", "activeTab", "scripting"],
   "action": {
     "default_title": "Applicant Desk Autofill",

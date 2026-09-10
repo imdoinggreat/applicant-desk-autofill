@@ -61,6 +61,8 @@ python3 -m http.server 18765
 
 如果启用 GitHub Pages，根目录的 [privacy.html](privacy.html) 可以作为 Chrome Web Store 的隐私政策链接。
 
+仓库内的 GitHub Actions 会在 `main` 推送时部署静态资料台，也会检查代码并生成扩展 ZIP。第一次发布后，在仓库 Settings → Pages 选择 GitHub Actions；之后用户可以直接访问 Pages、下载 Release 中的 ZIP，或在 Chrome 中选择 `extension/` 加载。
+
 ## 隐私
 
 资料默认只保存在当前浏览器设备，不会自动上传到网盘或第三方服务。导出备份后请把 JSON 文件当作个人敏感资料保存。

@@ -59,6 +59,8 @@ python3 -m http.server 18765
 
 生成的 ZIP 可以用于 Chrome Web Store 上传，也可以作为 GitHub Release 附件。发布前请同步检查 [PRIVACY.md](PRIVACY.md) 与商店后台的 Privacy practices 声明。
 
+如果启用 GitHub Pages，根目录的 [privacy.html](privacy.html) 可以作为 Chrome Web Store 的隐私政策链接。
+
 ## 隐私
 
 资料默认只保存在当前浏览器设备，不会自动上传到网盘或第三方服务。导出备份后请把 JSON 文件当作个人敏感资料保存。

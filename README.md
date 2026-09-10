@@ -58,6 +58,12 @@ python3 -m http.server 18765
 
 生成的 ZIP 可以用于 Chrome Web Store 上传，也可以作为 GitHub Release 附件。发布前请同步检查 [PRIVACY.md](PRIVACY.md) 与商店后台的 Privacy practices 声明。
 
+本地检查可以运行：
+
+```bash
+python3 scripts/check-extension-policy.py
+```
+
 如果启用 GitHub Pages，根目录的 [privacy.html](privacy.html) 可以作为 Chrome Web Store 的隐私政策链接。
 
 通用识别的边界见 [LIMITATIONS.md](LIMITATIONS.md)：它会优先保持保守，识别不确定时留空，让用户自己审核和提交。

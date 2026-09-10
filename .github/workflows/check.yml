@@ -23,6 +23,8 @@ jobs:
           node --check extension/content.js
       - name: Check manifest
         run: python3 -m json.tool extension/manifest.json >/dev/null
+      - name: Check extension policy invariants
+        run: python3 scripts/check-extension-policy.py
       - name: Package extension
         run: ./package-extension.sh
       - name: Upload extension package
